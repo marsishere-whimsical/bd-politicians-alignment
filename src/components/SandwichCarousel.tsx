@@ -30,10 +30,6 @@ function SandwichCarousel() {
     }
   }
 
-  const handleDragStart = (e: React.DragEvent, sandwich: typeof sandwichData.sandwiches[0]) => {
-  e.dataTransfer.setData('application/json', JSON.stringify(sandwich));
-};
-
 const handleDragStart = (e: React.DragEvent, sandwich: typeof sandwichData.sandwiches[0]) => {
     e.dataTransfer.setData('application/json', JSON.stringify(sandwich));
   };
@@ -41,9 +37,6 @@ const handleDragStart = (e: React.DragEvent, sandwich: typeof sandwichData.sandw
   return (
     <div className="w-full h-full rounded-lg flex items-center select-none">
 
-
-  return (
-    <div className="w-full h-full rounded-lg flex items-center select-none">
       <button
         onClick={() => scroll('left')}
         className="px-4 py-2 bg-neutral-800 text-neutral-200 rounded-l hover:bg-neutral-700 h-full"
