@@ -39,11 +39,9 @@ function SandwichInspector() {
     if (isOnBoard) {
       e.preventDefault();
       return;
-    }
+    };
 
   
-  
-
   return (
     <div className="p-6 text-neutral-200 select-none">
       <h2 className="text-2xl font-bold mb-6 text-center tracking-tight">Sandwich Inspector</h2>
