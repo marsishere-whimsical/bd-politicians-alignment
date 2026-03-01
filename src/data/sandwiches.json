@@ -1,0 +1,34 @@
+{
+  "sandwiches": [
+    {
+      "id": "mirza-abbas",
+      "name": "Mirza Abbas",
+      "imagePath": "/images/mirza-abbas.png"
+    },
+    {
+      "id": "mirza-fakhrul",
+      "name": "Mirza Fakhrul",
+      "imagePath": "/images/mirza-fakhrul.png"
+    },
+    {
+      "id": "nahid-islam",
+      "name": "Nahid Islam",
+      "imagePath": "/images/nahid-islam.png"
+    },
+    {
+      "id": "nasir-patwary",
+      "name": "Nasir Patwary",
+      "imagePath": "/images/nasir-patwary.png"
+    },
+    {
+      "id": "rumeen-farhana",
+      "name": "Rumeen Farhana",
+      "imagePath": "/images/rumeen-farhana.png"
+    },
+    {
+      "id": "tarique-rahman",
+      "name": "Tarique Rahman",
+      "imagePath": "/images/tarique-rahman.png"
+    }
+  ]
+}
