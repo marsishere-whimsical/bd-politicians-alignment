@@ -34,35 +34,12 @@ function SandwichCarousel() {
   e.dataTransfer.setData('application/json', JSON.stringify(sandwich));
 };
 
-    // Create an image from the canvas
-    const ghostImg = document.createElement('img');
-    ghostImg.src = canvas.toDataURL();
-    ghostImg.style.width = `${videoElement.offsetWidth * scaleFactor}px`;
-    ghostImg.style.height = `${videoElement.offsetHeight * scaleFactor}px`;
-    ghostImg.style.position = 'absolute';
-    ghostImg.style.top = '-1500px';
-    ghostImg.style.left = '-1500px';
-    ghostImg.style.pointerEvents = 'none';
-    ghostImg.style.opacity = '0.5';
-
-    document.body.appendChild(ghostImg);
-
-    // Use the ghost image as the drag image
-    e.dataTransfer.setDragImage(ghostImg, ghostImg.offsetWidth / 2, ghostImg.offsetHeight / 2);
-
-    // Cleanup after drag ends
-    const onDragEnd = () => {
-      if (ghostImg && document.body.contains(ghostImg)) {
-        document.body.removeChild(ghostImg);
-      }
-      if (e.currentTarget) {
-        e.currentTarget.removeEventListener('dragend', onDragEnd);
-      }
-    };
-
-    e.currentTarget.addEventListener('dragend', onDragEnd);
+const handleDragStart = (e: React.DragEvent, sandwich: typeof sandwichData.sandwiches[0]) => {
+    e.dataTransfer.setData('application/json', JSON.stringify(sandwich));
   };
 
+  return (
+    <div className="w-full h-full rounded-lg flex items-center select-none">
 
 
   return (
