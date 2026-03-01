@@ -41,51 +41,7 @@ function SandwichInspector() {
       return;
     }
 
-    e.dataTransfer.setData('application/json', JSON.stringify(selectedSandwich));
-  };
-    e.dataTransfer.setData('application/json', JSON.stringify(selectedSandwich));
-
-    // Get the video element
-    const videoElement = e.currentTarget as HTMLVideoElement;
-
-    // Create a canvas to capture the current video frame
-    const canvas = document.createElement('canvas');
-    const scaleFactor = 0.6;
-    canvas.width = videoElement.videoWidth * scaleFactor || 150;
-    canvas.height = videoElement.videoHeight * scaleFactor || 75;
-    const ctx = canvas.getContext('2d');
-    if (ctx) {
-      ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
-    }
-
-    // Create an image from the canvas
-    const ghostImg = document.createElement('img');
-    ghostImg.src = canvas.toDataURL();
-    ghostImg.style.width = `${videoElement.offsetWidth * scaleFactor}px`;
-    ghostImg.style.height = `${videoElement.offsetHeight * scaleFactor}px`;
-    ghostImg.style.position = 'absolute';
-    ghostImg.style.top = '-1500px';
-    ghostImg.style.left = '-1500px';
-    ghostImg.style.pointerEvents = 'none';
-    ghostImg.style.opacity = '0.5';
-
-    document.body.appendChild(ghostImg);
-
-    // Use the ghost image as the drag image
-    e.dataTransfer.setDragImage(ghostImg, ghostImg.offsetWidth / 2, ghostImg.offsetHeight / 2);
-
-    // Cleanup after drag ends
-    const onDragEnd = () => {
-      if (ghostImg && document.body.contains(ghostImg)) {
-        document.body.removeChild(ghostImg);
-      }
-      if (e.currentTarget) {
-        e.currentTarget.removeEventListener('dragend', onDragEnd);
-      }
-    };
-
-    e.currentTarget.addEventListener('dragend', onDragEnd);
-  };
+  
   
 
   return (
@@ -137,6 +93,7 @@ function SandwichInspector() {
           )}
         </div>
       )}
-    </div>
-  )}
+     </div>
+  )
+}
 export default SandwichInspector
