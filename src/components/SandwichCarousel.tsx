@@ -30,13 +30,12 @@ function SandwichCarousel() {
     }
   }
 
-const handleDragStart = (e: React.DragEvent, sandwich: typeof sandwichData.sandwiches[0]) => {
-    e.dataTransfer.setData('application/json', JSON.stringify(sandwich));
-  };
+  const handleDragStart = (e: React.DragEvent, sandwich: typeof sandwichData.sandwiches[0]) => {
+    e.dataTransfer.setData('application/json', JSON.stringify(sandwich))
+  }
 
   return (
     <div className="w-full h-full rounded-lg flex items-center select-none">
-
       <button
         onClick={() => scroll('left')}
         className="px-4 py-2 bg-neutral-800 text-neutral-200 rounded-l hover:bg-neutral-700 h-full"
@@ -58,11 +57,11 @@ const handleDragStart = (e: React.DragEvent, sandwich: typeof sandwichData.sandw
             ${selectedSandwich?.id === sandwich.id ? 'ring-1 ring-white rounded-lg' : ''}`}
           >
             <img
-  src={sandwich.imagePath}
-  alt={sandwich.name}
-  draggable={false}
-  className="w-24 h-16 object-contain"
-/>
+              src={sandwich.imagePath}
+              alt={sandwich.name}
+              draggable={false}
+              className="w-24 h-16 object-contain"
+            />
             <p
               className="text-neutral-200 text-xs mt-1 text-center w-24 select-none"
               draggable={false}
@@ -84,4 +83,3 @@ const handleDragStart = (e: React.DragEvent, sandwich: typeof sandwichData.sandw
 }
 
 export default SandwichCarousel
-
