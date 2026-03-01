@@ -23,7 +23,7 @@ function SandwichInspector() {
       return `${Math.round(-x * 100)}% ${labels.left}`
     }
   }
-  
+
   const getYPercentage = (y: number) => {
     if (y <= 0) {
       return `${Math.round(-y * 100)}% ${labels.top}`
@@ -33,15 +33,15 @@ function SandwichInspector() {
   }
 
   const handleDragStart = (e: React.DragEvent) => {
-    if (!selectedSandwich) return;
-
-    const isOnBoard = sandwichesOnBoard.some(s => s.id === selectedSandwich.id);
+    if (!selectedSandwich) return
+    const isOnBoard = sandwichesOnBoard.some(s => s.id === selectedSandwich.id)
     if (isOnBoard) {
-      e.preventDefault();
-      return;
-    };
+      e.preventDefault()
+      return
+    }
+    e.dataTransfer.setData('application/json', JSON.stringify(selectedSandwich))
+  }
 
-  
   return (
     <div className="p-6 text-neutral-200 select-none">
       <h2 className="text-2xl font-bold mb-6 text-center tracking-tight">Sandwich Inspector</h2>
@@ -54,12 +54,12 @@ function SandwichInspector() {
       ) : (
         <div className="flex flex-col items-center">
           <img
-  src={selectedSandwich.imagePath}
-  alt={selectedSandwich.name}
-  className="max-w-[90%] h-48 object-contain rounded-lg mb-4"
-  draggable={!sandwichesOnBoard.some(s => s.id === selectedSandwich.id)}
-  onDragStart={handleDragStart}
-/>
+            src={selectedSandwich.imagePath}
+            alt={selectedSandwich.name}
+            className="max-w-[90%] h-48 object-contain rounded-lg mb-4"
+            draggable={!sandwichesOnBoard.some(s => s.id === selectedSandwich.id)}
+            onDragStart={handleDragStart}
+          />
           <div className="w-full mt-4">
             <div className="mb-4">
               <p className="text-neutral-500 text-sm">Name:</p>
@@ -91,7 +91,8 @@ function SandwichInspector() {
           )}
         </div>
       )}
-     </div>
+    </div>
   )
 }
+
 export default SandwichInspector
